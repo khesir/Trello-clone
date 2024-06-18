@@ -33,3 +33,8 @@ DATABASE_URL=
 ```
  npx prisma generate
 ```
+
+### Learning Material
+I followed most of the instruction on creating this project here: https://www.codewithantonio.com/projects/trello-clone
+
+It's a bit outdated so I have to do abit of my own to make it run in the current setup.
