@@ -80,7 +80,7 @@ export const ListHeader = ({
                     className="flex-1 px-[2px]"
                 >
                     <input hidden id="id" name="id" value={data.id}/>
-                    <input hidden id="boardId" name="boardId" value={data.id}/>
+                    <input hidden id="boardId" name="boardId" value={data.boardId}/>
                     <FormInput
                         ref={inputRef}
                         onBlur={onBlur}
