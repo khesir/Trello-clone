@@ -7,7 +7,8 @@ import { revalidatePath } from "next/cache"
 import { createSafeAction } from "@/lib/create-safe-action"
 import { CopyList } from "./schema"
 import { redirect } from "next/navigation"
-import { List } from "@prisma/client"
+import { ACTION, ENTITY_TYPE, List } from "@prisma/client"
+import { createAuditLog } from "@/lib/create-audit-log"
 
 const handler = async (data: InputType): Promise<ReturnType> =>{
     const {userId, orgId} = auth()
@@ -77,6 +78,12 @@ const handler = async (data: InputType): Promise<ReturnType> =>{
                 }
             });
         }
+        await createAuditLog({
+            entityId: list.id,
+            entityTitle: list.title,
+            entityType: ENTITY_TYPE.LIST,
+            action: ACTION.CREATE
+        })
     } catch (error){
         console.log(error)
         return {
